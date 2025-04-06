@@ -171,12 +171,10 @@ const FacultyTab = ({ stats }: FacultyTabProps) => {
                 <img
                   src={`${
                     selectedGoal === goal
-                      ? `/src/components/SDG_ICON_filled/Goal${
+                      ? `/SDG_ICON_filled/Goal${
                           goal < 10 ? "0" + goal : goal
                         }.png`
-                      : `/src/components/SDG_ICON/Goal${
-                          goal < 10 ? "0" + goal : goal
-                        }.png`
+                      : `/SDG_ICON/Goal${goal < 10 ? "0" + goal : goal}.png`
                   }`}
                   alt={`Goal ${goal}`}
                   className="w-12 h-12 object-contain"

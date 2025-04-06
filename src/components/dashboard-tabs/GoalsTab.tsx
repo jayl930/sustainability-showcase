@@ -214,7 +214,7 @@ const GoalsTab = ({ stats }: GoalsTabProps) => {
                   <div className="w-24 h-20 flex-shrink-0 flex items-center justify-center z-10 bg-white">
                     <div className="flex items-center">
                       <img
-                        src={`/src/components/SDG_ICON_filled/Goal${
+                        src={`/SDG_ICON_filled/Goal${
                           pair.goal1 < 10 ? "0" + pair.goal1 : pair.goal1
                         }.png`}
                         alt={`Goal ${pair.goal1}`}
@@ -222,7 +222,7 @@ const GoalsTab = ({ stats }: GoalsTabProps) => {
                       />
                       <span className="mx-2 text-lg font-medium">+</span>
                       <img
-                        src={`/src/components/SDG_ICON_filled/Goal${
+                        src={`/SDG_ICON_filled/Goal${
                           pair.goal2 < 10 ? "0" + pair.goal2 : pair.goal2
                         }.png`}
                         alt={`Goal ${pair.goal2}`}
