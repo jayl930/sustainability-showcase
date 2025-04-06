@@ -153,33 +153,37 @@ const FacultyTab = ({ stats }: FacultyTabProps) => {
           </CardDescription>
           <div className="flex flex-wrap gap-2 mt-2">
             {availableGoals.map((goal) => (
-              <Button
+              <div
                 key={goal}
-                size="sm"
-                className={`flex items-center justify-center p-3 h-16 w-16 border-2 ${
-                  selectedGoal === goal
-                    ? "text-white border-transparent"
-                    : "border-input bg-white hover:bg-white"
-                }`}
-                onClick={() => setSelectedGoal(goal)}
-                style={
-                  selectedGoal === goal
-                    ? { backgroundColor: GOAL_COLORS[goal - 1] || "#3B82F6" }
-                    : undefined
-                }
+                className="h-16 min-w-[4rem]"
+                style={{ width: "4rem" }}
               >
-                <img
-                  src={`${
+                <Button
+                  className={`flex items-center justify-center p-2 h-full w-full ${
                     selectedGoal === goal
-                      ? `/SDG_ICON_filled/Goal${
-                          goal < 10 ? "0" + goal : goal
-                        }.png`
-                      : `/SDG_ICON/Goal${goal < 10 ? "0" + goal : goal}.png`
+                      ? "text-white"
+                      : "border border-input bg-white hover:bg-gray-50"
                   }`}
-                  alt={`Goal ${goal}`}
-                  className="w-12 h-12 object-contain"
-                />
-              </Button>
+                  onClick={() => setSelectedGoal(goal)}
+                  style={
+                    selectedGoal === goal
+                      ? { backgroundColor: GOAL_COLORS[goal - 1] || "#3B82F6" }
+                      : undefined
+                  }
+                >
+                  <img
+                    src={`${
+                      selectedGoal === goal
+                        ? `/SDG_ICON_filled/Goal${
+                            goal < 10 ? "0" + goal : goal
+                          }.png`
+                        : `/SDG_ICON/Goal${goal < 10 ? "0" + goal : goal}.png`
+                    }`}
+                    alt={`Goal ${goal}`}
+                    className="w-14 h-14 object-contain"
+                  />
+                </Button>
+              </div>
             ))}
           </div>
         </CardHeader>
