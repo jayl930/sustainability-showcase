@@ -156,10 +156,10 @@ const FacultyTab = ({ stats }: FacultyTabProps) => {
               <Button
                 key={goal}
                 size="sm"
-                className={`flex items-center justify-center p-3 h-16 ${
+                className={`flex items-center justify-center p-3 h-16 w-16 border-2 ${
                   selectedGoal === goal
-                    ? "text-white"
-                    : "border border-input bg-white hover:bg-white hover:border-2"
+                    ? "text-white border-transparent"
+                    : "border-input bg-white hover:bg-white"
                 }`}
                 onClick={() => setSelectedGoal(goal)}
                 style={
