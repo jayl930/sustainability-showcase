@@ -68,7 +68,7 @@ const Index = () => {
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2">
               <img
-                src="./src/components/Icons/uiuc.png"
+                src="/Icons/uiuc.png"
                 alt="Illinois Logo"
                 className="h-8 w-8"
               />
