@@ -17,7 +17,7 @@ const Index = () => {
     const loadCSVData = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch("./data/person_research_outputs.csv");
+        const response = await fetch("/person_research_outputs.csv");
         const csvText = await response.text();
         const csvBlob = new Blob([csvText], { type: "text/csv" });
         const csvFile = new File([csvBlob], "person_research_outputs.csv", {
