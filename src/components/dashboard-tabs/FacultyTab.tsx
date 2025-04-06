@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { DashboardStats } from "@/utils/types";
 import {
   Card,
@@ -30,6 +30,7 @@ const ITEMS_PER_PAGE = 10;
 const FacultyTab = ({ stats }: FacultyTabProps) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedGoal, setSelectedGoal] = useState<number | null>(null);
+  const [imagesPreloaded, setImagesPreloaded] = useState(false);
 
   // Get available goals with contributors
   const availableGoals = stats.goalContributors
@@ -42,6 +43,26 @@ const FacultyTab = ({ stats }: FacultyTabProps) => {
       setSelectedGoal(availableGoals[0]);
     }
   }, [availableGoals, selectedGoal]);
+
+  // Preload all images
+  useEffect(() => {
+    if (!imagesPreloaded && availableGoals.length > 0) {
+      // Preload all icon images to prevent slow loading on first click
+      availableGoals.forEach((goal) => {
+        // Preload unfilled icons
+        const unfilled = new Image();
+        unfilled.src = `/SDG_ICON/Goal${goal < 10 ? "0" + goal : goal}.png`;
+
+        // Preload filled icons
+        const filled = new Image();
+        filled.src = `/SDG_ICON_filled/Goal${
+          goal < 10 ? "0" + goal : goal
+        }.png`;
+      });
+
+      setImagesPreloaded(true);
+    }
+  }, [availableGoals, imagesPreloaded]);
 
   // Get current goal contributors
   const currentGoalContributors =
@@ -239,6 +260,24 @@ const FacultyTab = ({ stats }: FacultyTabProps) => {
           )}
         </CardContent>
       </Card>
+
+      {/* Hidden preload div for all icon images */}
+      <div className="hidden">
+        {availableGoals.map((goal) => (
+          <React.Fragment key={`preload-${goal}`}>
+            <img
+              src={`/SDG_ICON/Goal${goal < 10 ? "0" + goal : goal}.png`}
+              alt=""
+              aria-hidden="true"
+            />
+            <img
+              src={`/SDG_ICON_filled/Goal${goal < 10 ? "0" + goal : goal}.png`}
+              alt=""
+              aria-hidden="true"
+            />
+          </React.Fragment>
+        ))}
+      </div>
     </div>
   );
 };
