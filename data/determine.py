@@ -132,7 +132,7 @@ if not os.getenv("OPENAI_API_KEY"):
 
 embeddings = OpenAIEmbeddings(
     model="text-embedding-3-large",
-    openai_api_key="sk-None-f0xrZ8mha7PJFdznFdEkT3BlbkFJe4xB7PxGrbndJNFuuO45",
+    openai_api_key="",
 )
 
 loaded_faiss = FAISS.load_local(
