@@ -1,0 +1,10 @@
+pandas
+requests
+selenium
+beautifulsoup4
+webdriver-manager
+tenacity
+python-dotenv
+langchain-core
+langchain-openai
+langchain-community
